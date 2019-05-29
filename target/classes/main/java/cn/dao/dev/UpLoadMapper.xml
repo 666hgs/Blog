@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="main.java.cn.dao.dev.UpLoadMapper">
+    <insert id="upload" parameterType="Dynamic">
+        INSERT INTO DYNAMIC (`user_name`,`dynamic_time`,`user_photo`,`dynamic_text`,`dynamic_photo`,`user_tid`,`dynamic_photo1`,`dynamic_photo2`)
+         VALUES (#{user_name},NOW(),#{user_photo},#{dynamic_text},#{dynamic_photo},#{user_tid},#{dynamic_photo1},#{dynamic_photo2})
+    </insert>
+
+    <delete id="deleteDy">
+        DELETE  FROM `dynamic` WHERE `dynamic_id`=#{dynamic_id};
+    </delete>
+</mapper>
+

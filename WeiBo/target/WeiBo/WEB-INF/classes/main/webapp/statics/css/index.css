@@ -1,0 +1,521 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.follow {
+    font-size: 13px;
+    right: 0px;
+    padding: 3px 10px;
+    border: 1px solid #3f4c6e;
+    color: #3f4c6e;
+    background-color: white;
+    position: absolute;
+    right: 80px;
+    top: 25px;
+    box-shadow: grey 0 0 2px;
+    cursor: pointer;
+}
+
+.main {
+    width: 100%;
+    background-color: #fcfcfc;
+    padding-top: 10px;
+}
+
+.center {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 1080px;
+    padding: 10px;
+    margin: auto;
+}
+
+.clear {
+    clear: both;
+}
+
+.m_left {
+    float: left;
+    width: 17%;
+}
+
+.m_left > div:nth-child(1) {
+    width: 100%;
+    height: 180px;
+    font-family: "宋体";
+    border-radius: 50px;
+}
+
+.m_left > div:nth-child(1) > div:nth-child(1) {
+    width: 100%;
+    height: 45%;
+    background: #ffffff;
+    position: relative;
+
+}
+
+.m_left > div:nth-child(1) > div:nth-child(2) {
+    width: 100%;
+    height: 48%;
+    background: #ffffff;
+}
+
+.photo {
+    top: 20px;
+    left: 52px;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    box-shadow: 0 0 1px black;
+}
+
+.photo > a > img {
+    border-radius: 40px;
+    height: 100%;
+    width: 100%;
+}
+
+.message {
+    padding-top: 28px;
+    text-align: center;
+}
+
+.message > span {
+    display: inline-block;
+    margin: 8px 10px;
+}
+
+.message > h3 > a {
+    font-weight: bolder;
+    font-size: 17px;
+}
+
+.message a {
+    font-size: 12px;
+    font-weight: bolder;
+    color: black;
+}
+
+.message a:hover {
+    color: #428bca;
+    transition: color 0.1s;
+}
+
+.m_left > div:nth-child(2) {
+    width: 100%;
+    height: auto;
+    margin-top: 25px;
+    font-family: "宋体";
+    background-color: white;
+    border-radius: 2px;
+}
+
+.m_left > div:nth-child(2) > ul {
+    list-style-type: none;
+}
+
+.m_left > div:nth-child(2) > ul > li {
+    text-align: center;
+    width: 100%;
+    padding: 5px 0;
+}
+
+.m_left > div:nth-child(2) > ul > li > a {
+    display: block;
+    padding: 10px 0;
+    width: 100%;
+    color: black;
+    font-size: 13px;
+}
+
+.m_left > div:nth-child(2) > ul > li > a:hover {
+    color: white;
+    background-color: #3f4c6e;
+    transition: background-color 0.1s;
+}
+
+/* -------------------------------------------- */
+.m_center {
+
+    float: left;
+    margin: 0 0 0 10px;
+    width: 60%;
+}
+
+.m_center > div:nth-child(1) {
+    padding: 10px;
+    width: 100%;
+    height: 168px;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+}
+
+.m_center > div:nth-child(1) > span {
+    font-family: "楷体";
+    font-size: 14px;
+}
+
+.m_center > div:nth-child(1) > form > textarea {
+    font-family: 新宋体;
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid grey;
+    box-shadow: grey 0 0 1px inset;
+    resize:none;
+}
+.m_center > div:nth-child(1) > form > textarea:focus{
+
+    border: 1px solid #ff6d00;
+    box-shadow: #ff6d00 0 0 1px inset;
+}
+
+.m_center > div:nth-child(1) > form > input {
+    margin-top: 10px;
+    float: right;
+    padding: 5px 30px;
+    background-color: #ffc09f;
+    border: 1px solid #ffc09f;
+    color: #f7f5f6;
+    cursor: pointer;
+}
+
+.m_center > div:nth-child(2) {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.nei {
+    display: inline-block;
+    margin-top: 10px;
+    position: relative;
+}
+
+.nei > i {
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.nei > i[class="fa fa-picture-o"] {
+    color: #84c002;
+}
+
+.nei > i[class="fa fa-hashtag"] {
+    color: #54a8e5;
+}
+
+.nei > i[class="fa fa-smile-o"] {
+    color: #ffa405;
+}
+
+.nei > i[class="fa fa-video-camera"] {
+    color: #54bcef;
+}
+
+.nei > i[class="fa fa-bolt"] {
+    color: #ff8200;
+}
+
+.nei > span {
+    margin-left: 5px;
+    font-size: 13px;
+}
+
+.dt {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    background-color: #FFFFFF;
+    position: relative;
+}
+
+.dt_message {
+    width: 100%;
+    height: 77px;
+    position: relative;
+}
+
+.dt_message > img {
+    border: 1px black solid;
+    width: 54px;
+    height: 54px;
+    border-radius: 27px;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+}
+
+.dt_message > span:nth-child(2) {
+    font-weight: bold;
+    position: absolute;
+    font-size: 18px;
+    top: 23px;
+    left: 78px;
+}
+
+.dt_message > span:nth-child(3) {
+    font-size: 12px;
+    position: absolute;
+    top: 47px;
+    color: gray;
+    left: 78px;
+}
+
+.dt_text {
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    font-size: 15px;
+    background-color: white;
+    padding: 0 80px;
+    font-family: "宋体";
+    position: relative;
+}
+
+.dt_photo {
+    position: relative;
+    padding: 5px 80px;
+    overflow: hidden;
+}
+
+.smallphoto {
+    float: left;
+    height: 160px;
+    width: 160px;
+    cursor: zoom-in;
+    margin-right: 4px;
+}
+
+i[class="fa fa-times"] {
+    font-size: 18px;
+    position: absolute;
+    top: 10px;
+    display: none;
+    right: 90px;
+    cursor: pointer;
+}
+
+.bigphoto {
+    width: 100%;
+    height: auto;
+    margin-bottom: 5px;
+    cursor: zoom-out;
+}
+
+.blackbo {
+    background-color: black;
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    top: 0;
+    z-index: 800;
+    opacity: 0.5;
+    display: none;
+}
+
+.dt_photo > img:last-child {
+    margin-right: 0px;
+}
+
+.dt_zc {
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    border-top: 1px solid #e6e6e6;
+    padding: 5px 80px;
+    background-color: #f7f5f6;
+}
+
+.dt_zc > a {
+    box-sizing: border-box;
+    float: left;
+    display: inline-block;
+    width: 49%;
+    text-align: center;
+    color: gray;
+}
+
+.dt_zc > a > i {
+    margin-right: 5px;
+}
+
+.dt_zc > a > i[class="fa fa-comment-o"] {
+    color: #282828;
+}
+
+.dt_zc > a > i[class="fa fa-thumbs-up"] {
+    color: #ff6d00;
+}
+
+.dt_zc > a > i[class="fa fa-thumbs-o-up"] {
+    color: #282828;
+}
+
+.dt_zc > a > i[class="fa fa-exclamation"] {
+    color: #3D3D3D;
+}
+
+.dt_zc > a > span {
+    font-size: 13px;
+}
+
+.dt_zc > a {
+    border-right: 1px solid darkgray;
+}
+
+.dt_zc > a:first-child {
+    border-left: 1px solid darkgray;
+}
+
+/* -------------------------------------------- */
+.m_right {
+    float: left;
+    margin-left: 10px;
+    height: auto;
+    width: 21%;
+}
+
+.ggl {
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    height: 100px;
+    width: 100%;
+    padding: 5px 10px;
+
+}
+
+.ggl > div {
+    border-bottom: 1px solid #f7f5f6;
+}
+
+.ggl > div > span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.ggl > span > a {
+    font-size: 12px;
+    color: #3870a9;
+}
+
+.ggl > span > a:hover {
+    color: darkblue;
+}
+
+.hot {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    margin-top: 10px;
+}
+
+.hot > div > span {
+    display: inline-block;
+    margin: 5px 10px;
+}
+
+.hot > div {
+    border-bottom: 1px solid #f7f5f6;
+}
+
+.hot > div > span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.hot > ul > li {
+    margin-left: 10px;
+    font-size: 12px;
+    padding-top: 10px;
+}
+
+.hot > ul > li > a {
+    color: black;
+}
+
+.hot > ul > li > a > span {
+    margin-right: 10px;
+    float: right;
+}
+
+.hot > div:nth-child(3) {
+    margin-top: 10px;
+    padding: 7px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    border-top: 1px solid #ececec;
+}
+
+#photoshow {
+    width: 260px;
+    height: 120px;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0px 0px 6px grey;
+    border: 1px solid #c6c6c6;
+    position: absolute;
+    z-index: 999;
+    top: 30px;
+    left: 10px;
+    display: none;
+}
+
+#photoshow > span {
+    font-size: 12px;
+}
+
+#filebutton {
+    width: 80px;
+    height: 80px;
+    border: 3px dashed grey;
+    font-size: 40px;
+    color: grey;
+    margin-top: 3px;
+}
+
+#photoshow > div > div {
+    height: 80px;
+    width: 80px;
+    float: left;
+    display: none;
+    margin-top: 3px;
+    margin-right: 6px;
+    position: relative;
+}
+
+#photoshow > div > div > i {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: white;
+    cursor: pointer;
+    z-index: 999;
+}
+
+#photoshow > div > div > img {
+    height: 80px;
+    width: 80px;
+}
+
+#good {
+    font-size: 0px;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    z-index: 999;
+    color: #ff6d00;
+}
+
+i[class="fa fa-sort-asc"] {
+    position: absolute;
+    top: -10px;
+    font-size: 30px;
+    color: #ffffff;
+}

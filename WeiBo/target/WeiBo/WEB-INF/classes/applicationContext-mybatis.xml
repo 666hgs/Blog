@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+    <beans xmlns="http://www.springframework.org/schema/beans"  
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+            xmlns:aop="http://www.springframework.org/schema/aop"
+            xmlns:tx="http://www.springframework.org/schema/tx"  
+            xmlns:context="http://www.springframework.org/schema/context"  
+            xsi:schemaLocation="   
+                http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd   
+                http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd   
+                http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
+                http://www.springframework.org/schema/context 
+                http://www.springframework.org/schema/context/spring-context.xsd">  
+                
+    <context:component-scan base-package="main.java.cn.service"/>
+    <context:component-scan base-package="main.java.cn.dao"/>
+   	<context:property-placeholder location="classpath:database.properties"/>
+    <!-- JNDI获取数据源(使用dbcp连接池) -->
+     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+    <property name="driverClassName" value="${datasource.jdbc.driver}"/>
+    <property name="url" value="${datasource.jdbc.url}"/>
+    <property name="username" value="${datasource.jdbc.user}"/>
+    <property name="password" value="${datasource.jdbc.password}"/>
+    <property name="initialSize" value="${datasource.jdbc.initialSize}"/>
+    <property name="maxActive" value="${datasource.jdbc.maxActive}"/>
+    <property name="maxIdle" value="${datasource.jdbc.maxIdle}"/>
+    <property name="minIdle" value="${datasource.jdbc.minIdle}"/>
+    <property name="maxWait" value="${datasource.jdbc.maxWait}"/>
+    <property name="removeAbandoned" value="${datasource.jdbc.removeAbandoned}"/>
+    <property name="removeAbandonedTimeout" value="${datasource.jdbc.removeAbandonedTimeout}"/>
+    <property name= "testWhileIdle" value="true"/>
+    <property name= "timeBetweenEvictionRunsMillis" value="60000"/>
+    <property name= "testOnBorrow" value="false"/>
+    <property name= "testOnReturn" value="false"/>
+    <property name= "validationQuery" value="select 1"/>
+    <property name= "numTestsPerEvictionRun" value="${datasource.jdbc.maxActive}"/>
+</bean>
+
+    <!-- 配置mybatis SqlSessionFactoryBean -->
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+	</bean>
+
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="main.java.cn.dao"/>
+	</bean>
+
+	<!-- 事务管理   -->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<tx:advice transaction-manager="txManager" id="txAdvice">
+		<tx:attributes>
+			<tx:method name="get*" propagation="NEVER"/>
+			<tx:method name="set*" propagation="NEVER"/>
+			<tx:method name="find*" propagation="SUPPORTS"/>
+			<tx:method name="*" propagation="REQUIRED"/>
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut id="txPoint" expression="execution(* cn.service..*.*(..))"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint"/>
+	</aop:config>
+</beans>

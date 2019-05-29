@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+ <mapper namespace="main.java.cn.dao.dev.LfMapper">
+
+    <select id="getLogin" resultType="Users">
+
+        select * from users where user_tel=#{user_tel} and user_pass=#{user_pass}
+
+    </select>
+
+    <select id="getUserlist" resultType="Users">
+
+
+        select * from users
+
+    </select>
+
+
+
+
+    <select id="getDynamiclist" resultType="Dynamic">
+
+     select * from dynamic ORDER BY dynamic_time DESC
+
+    </select>
+
+    <insert id="getLike">
+
+      insert into praise  (user_id,dt_id)
+      select a.user_tel,b.dynamic_id from users a,dynamic b where
+      a.user_tel=#{user_tel} and b.dynamic_id=#{dynamic_id}
+
+
+    </insert>
+
+    <update id="delike">
+
+       update praise set status=1
+       where user_id=#{user_tel} and dt_id=#{dynamic_id}
+
+    </update>
+
+    <select id="getPraiselist"  resultType="Praise">
+        select  * from praise where user_id=#{user_tel}
+         and dt_id=#{dynamic_id}
+
+    </select>
+
+    <delete id="deletePraise">
+
+        delete from praise where user_id=#{user_tel}
+        and dt_id=#{dynamic_id}
+
+
+    </delete>
+
+  <select id="getCount" parameterType="Integer" resultType="Integer">
+
+        select count(*) from praise  WHERE dt_id=#{dynamic_id}
+
+    </select>
+
+    <insert id="getFollow">
+          insert into follow(follower_id,befollower_id)
+         values(#{user_tel},#{user_tid})
+    </insert>
+
+  <update id="deFollow">
+
+      update follow set status=1
+      where follower_id=#{user_tel} and befollower_id=#{user_tid}
+
+
+  </update>
+
+<select id="getFollowlist" resultType="Follow">
+    select * from follow where follower_id=#{user_tel} and befollower_id=#{user_tid}
+</select>
+
+    <delete id="deleteFollow">
+
+        delete from follow where follower_id=#{user_tel}
+        and befollower_id=#{user_tid}
+
+
+    </delete>
+
+
+    <select id="getInfo" resultType="Users">
+         SELECT * from users where user_tel=#{user_tel}
+
+    </select>
+
+
+
+    <select id="getUlist" resultType="Users">
+
+      select a.* from users a,follow c where
+     c.follower_id=#{user_tel} and
+     c.befollower_id=a.user_tel
+
+
+
+
+
+    </select>
+    <select id="getLong" parameterType="String" resultType="Integer">
+
+        select count(*) from follow where follower_id=#{user_tel}
+
+    </select>
+
+    <select id="getFensi" parameterType="String" resultType="Integer">
+
+        select count(*) from follow where befollower_id=#{user_tel}
+
+    </select>
+
+    <delete id="deleteFollow2">
+
+        delete from follow where follower_id=#{user_tel} and befollower_id=#{user_tid}
+
+
+
+    </delete>
+  <select id="getFslist" resultType="Users">
+
+          select a.* from users a,follow c where
+        c.befollower_id=#{user_tel} and c.follower_id=a.user_tel
+
+    </select>
+
+    <insert id="becomeFollow">
+
+        insert into follow(follower_id, befollower_id, status)
+        values (#{user_tel},#{fans_tel},1)
+
+
+    </insert>
+
+<update id="upInfo">
+    update users
+    <trim prefix="set" suffixOverrides=",">
+        <if test="user_tel!=null">user_tel=#{user_tel},</if>
+        <if test="user_name!=null">user_name=#{user_name},</if>
+        <if test="user_sex!=null">user_sex=#{user_sex},</if>
+        <if test="user_birth!=null">user_birth=#{user_birth},</if>
+        <if test="user_intro!=null">user_intro=#{user_intro},</if>
+
+    </trim>
+                       where user_tel=#{user_tel}
+
+</update>
+
+<update id="puInfo">
+     update users
+    <trim prefix="set" suffixOverrides=",">
+        <if test="user_email!=null">user_email=#{user_email},</if>
+        <if test="user_qq!=null">user_qq=#{user_qq},</if>
+
+    </trim>
+      where  user_tel=#{user_tel}
+
+</update>
+
+    <select id="getmyList" resultType="Dynamic">
+
+        select * from dynamic where user_tid=#{user_tel}
+
+    </select>
+
+  <select id="getDycount" parameterType="String" resultType="Integer">
+
+      select count(*) from dynamic where user_tid=#{user_tel}
+  </select>
+
+    <select id="getprList" resultType="Dynamic">
+
+        select a.* from dynamic a,praise b where a.dynamic_id=b.dt_id and b.user_id=#{user_tel}
+
+
+    </select>
+    <select id="findUser" resultType="Users">
+       select * from `users` where user_tel=#{user_tel} and user_pass=#{user_pass}
+   </select>
+
+    <select id="exist" resultType="Users">
+       select * from `users` where user_tel=#{user_tel}
+   </select>
+
+    <insert id="insertUser">
+        insert into `users` (user_tel,user_pass,user_name,user_rtime) values (#{user_tel},#{user_pass},#{user_name},NOW())
+    </insert>
+
+
+    <update id="updatepass">
+        update `users` set user_pass=#{user_pass} where user_tel=#{user_tel}
+    </update>
+
+
+    <update id="uphoto">
+        update `users` set user_photo=#{user_photo} where user_tel=#{user_tel}
+    </update>
+
+    <delete id="deletePra">
+        DELETE  FROM `praise` WHERE `dt_id`=#{dt_id}
+    </delete>
+</mapper>
+

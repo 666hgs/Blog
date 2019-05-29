@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="main.java.cn.dao.backend.AdminMapper">
+
+    <select id="login" resultType="Admin">
+       select * from `admin` where admin_count=#{admin_count} and admin_pass=#{admin_pass}
+   </select>
+
+    <update id="updatepass">
+        update `admin` set admin_pass=#{admin_pass} where admin_count=#{admin_count}
+    </update>
+
+    <select id="adminlist" resultType="Admin">
+        SELECT a.*,p1.`name` AS categoryLevel1Name,p2.`name` AS categoryLevel2Name FROM `admin` a,`place` p1,`place` p2
+        WHERE a.`categoryLevel1`=p1.`id` AND a.`categoryLevel2`=p2.`id`
+    </select>
+
+    <delete id="deleteadmin">
+        delete from `admin` where  admin_count=#{admin_count}
+    </delete>
+
+    <insert id="addadmin">
+        insert INTO `admin`(`admin_count`,`admin_name`,`admin_card`,`admin_photo`,`admin_pass`,`admin_level`,`categoryLevel1`,`categoryLevel2`)
+         values (#{admin_count},#{admin_name},#{admin_card},#{admin_photo},123456,2,#{categoryLevel1},#{categoryLevel2})
+    </insert>
+
+    <select id="adminmessage" resultType="Admin">
+            SELECT a.*,p1.`name` AS categoryLevel1Name,p2.`name` AS categoryLevel2Name FROM `admin` a,`place` p1,`place` p2
+            WHERE a.`categoryLevel1`=p1.`id` AND a.`categoryLevel2`=p2.`id` AND a.`admin_id`=#{admin_id}
+    </select>
+
+    <select id="placelist" resultType="Place">
+        select * from `place` where  parentid=#{parentid}
+    </select>
+
+    <update id="upmessage">
+        update `admin` set admin_name=#{admin_name},categoryLevel1=#{categoryLevel1},categoryLevel2=#{categoryLevel2},
+        admin_card=#{admin_card},admin_photo=#{admin_photo} where admin_id=#{admin_id}
+    </update>
+
+    <select id="aexist" resultType="Admin">
+        select * from `admin` where  admin_count=#{admin_count}
+    </select>
+
+    <select id="countadmin" resultType="int">
+        SELECT COUNT(*) FROM `admin`
+    </select>
+    <select id="countuser" resultType="int">
+       SELECT COUNT(*) FROM `users`
+    </select>
+</mapper>

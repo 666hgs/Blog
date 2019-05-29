@@ -1,0 +1,106 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: -webkit-linear-gradient(left, #E8CBC0, #636FA4);
+    background: -o-linear-gradient(right, #E8CBC0, #636FA4);
+    background: -moz-linear-gradient(right, #E8CBC0, #636FA4);
+    background: linear-gradient(to right, #E8CBC0, #636FA4);
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+.t_center{
+    border-radius: 8px;
+    border-top: 2px solid #fa7d3c;
+    width: 850px;
+    height: 400px;
+    margin: 150px auto;
+    background-color: #FFFFFF;
+}
+.t_top{
+    height: 30%;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+.t_top span{
+    font-size: 23px;
+    display: block;
+    margin-top: 45px;
+}
+.t_under{
+    height: 70%;
+    width: 100%;
+    background-color: #fafafa;
+    overflow: hidden;
+}
+
+.t_under>form>span:first-child{
+    display: block;
+    font-size: 13px;
+    margin-top: 30px;
+    margin-left: 280px;
+}
+.t_under>form>span:nth-child(2){
+    display: block;
+    font-size: 13px;
+    margin-top: 50px;
+    margin-left: 280px;
+}
+.t_under>form>div{
+    font-size: 13px;
+    width: 400px;
+    margin: 5px 0 0 280px;
+
+}
+.t_under>form>div>input[type="text"]{
+    padding: 7px 10px;
+    width: 100px;
+    margin-right: 10px;
+}
+#getcode{
+    padding: 5px 10px;
+    width: auto;
+    margin-right: 10px;
+    color: white;
+    background-color: #ff8140;
+    border: 1px solid #ff8140;
+}
+#next{
+    width:200px ;
+    display: block;
+    margin: 20px 0 0 335px;
+    background-color: #ff8140;
+    color: white;
+    border: 1px solid #ff8140;
+    padding:7px 10px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+ul{
+    font-size: 12px;
+    position: absolute;
+    left: 1050px;
+    top: -25px;
+    list-style: none;
+}
+ul>li{
+    float: left;
+    padding: 0 10px;
+}
+ul>li:first-child{
+    border-right: 1px solid black;
+}
+.other{
+    margin: 20px auto 0 auto;
+    width: 200px;
+    font-size: 13px;
+}
+.other>span>a{
+    color: royalblue;
+}
